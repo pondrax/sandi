@@ -1,6 +1,6 @@
 <script>
 import ENV from '$lib/variables';
-import { FeatherIcon, KeyIcon } from 'svelte-feather-icons';
+import { ArrowDownIcon, ChevronDownIcon, FeatherIcon, KeyIcon } from 'svelte-feather-icons';
 import { Button } from '$ui';
 import { browser } from '$app/env';
 
@@ -14,52 +14,219 @@ if(browser){
 }
 </script>
 
-<div class="font-sans bg-base-100 flex flex-col min-h-screen w-full">
+<div id="home" class="font-sans bg-base-100 flex flex-col min-h-screen w-full">
 	<div>
-		<div class="bg-base-200 px-4 py-4">
-			<div class="w-full md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between">
-				<div>
-					<a href="/" class="flex gap-2 py-2 text-base-800 text-2xl font-bold">
-						<img src="/favicon.png" alt="icon" class="h-8" />
-						{ENV.name}
-					</a>
-				</div>
 
-				<!-- <div>
-					<div class="hidden md:block">
-						<a href="/" class="inline-block py-1 md:py-4 text-base-600 mr-6 font-bold">
-							How it Works
-						</a>
-						<a href="/" class="inline-block py-1 md:py-4 text-base-500 hover:text-base-600 mr-6">
-							Solutions
-						</a>
-						<a href="/app" class="inline-block py-1 md:py-4 text-base-500 hover:text-base-600 mr-6">
-							Dashboard
-						</a>
-						<a
-							href="/dev"
-							class="inline-block py-1 md:py-4 text-base-500 hover:text-base-600 mr-6"
-						>
-							Components
-						</a>
-					</div>
-				</div> -->
+    <div class="hero min-h-screen bg-base-200 -mb-36">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-4xl font-bold">Persandian &</h1>
+          <h1 class="text-4xl font-bold">Keamanan Informasi</h1>
+          <p class="py-6">Melindungi aplikasi sehingga tersedia untuk diakses kapanpun dimanapun dengan validitas data yang terpercaya</p>
+          <!-- <p class="py-6">Melindungi data, tersedia untuk diakses kapanpun dimanapun dan validitas data yang dapat dipercaya</p> -->
+          <a href="#tentang" class="btn btn-primary">Pelajari Selengkapnya</a>
+        </div>
+      </div>
+    </div>
 
-				<div class="block">
-					<!-- <a href="/login" class="inline-block py-1 md:py-4 text-base-500 hover:text-base-600 mr-6"
-						>Login</a
-					> -->
-					<!-- <a
-						href="{env.apiUrl}/auth/google" -->
-          <!-- <button on:click={login}
-						class="inline-block py-2 px-4 text-base-700 bg-base-100 hover:bg-base-100 rounded-lg"
-						>
-            LOGIN
-            </button
-					> -->
-				</div>
+		<div class="sticky -top-2 bg-base-200 p-2 z-30 -mb-20" style="border-radius:0 0 50% 50%">
+			<div class="w-full md:max-w-xl md:mx-auto md:flex md:items-center md:justify-between">
+        <div class="navbar justify-center">
+          <!-- <div class="flex-1">
+            <a href="/" class="btn btn-ghost normal-case text-xl">
+              <img src="/favicon.png" alt="icon" class="h-8 mr-2" />
+              {ENV.name}
+            </a>
+          </div> -->
+          <div class="flex-none">
+            <ul class="menu menu-horizontal p-0">
+              <li><a href="#home">Beranda</a></li>
+              <li><a href="#tentang">Tentang</a></li>
+              <li tabindex="0">
+                <a href="#layanan">
+                  Layanan
+                  <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+                </a>
+                <ul class="p-2 bg-base-100 shadow z-30">
+                  <li><a href="#csirt">CSIRT</a></li>
+                  <li><a href="#sertifikat-elektronik">Sertifikat Elektronik</a></li>
+                  <li><a href="#audit">Audit</a></li>
+                  <li><a href="#asesmen">Asesmen</a></li>
+                </ul>
+              </li>
+              <li><a href="#faq">Faq</a></li>
+              <li><a href="#kontak">Kontak</a></li>
+            </ul>
+          </div>
+        </div>
+        
 			</div>
 		</div>
+
+    <div id="tentang" class="bg-base-100">        
+      <svg
+        class="fill-current bg-base-200 text-base-100 hidden md:block"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        style="margin-bottom:-320px"
+      >
+        <path
+          fill-opacity="1"
+          d="M0,64L120,85.3C240,107,480,149,720,149.3C960,149,1200,107,1320,85.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        />
+      </svg>
+      <div class="hero min-h-screen ">
+        <div class="hero-content flex-col lg:flex-row gap-10 max-w-5xl">
+          <div>
+            <h1 class="text-3xl font-bold">Persandian</h1>
+            <p class="py-3">Persandian sebagai upaya untuk mengamankan, melindungi dan menjamin orisinalitas sebuah berita atau dokumen pemerintah merupakan hal yang amat penting dalam era serba teknologi informasi saat ini</p>
+            <!-- <p class=""><b>Tujuan</b>:</p>
+              <ul class="list-disc ml-5">
+                <li>
+                  <div>Keterjagaan</div>
+                  <div>Melindungi data dan informasi dari pihak yang tidak memiliki wewenang untuk mengetahui atau mengelolanya.</div>
+              </li>
+            </ul> -->
+          </div>
+          <img src="/assets/images/kami.png" class="max-w-sm rounded-lg" alt="kami"/>
+        </div>
+      </div>
+      <div class="text-center -mt-20">
+        <a href="#kami" class="btn btn-primary">
+          <ChevronDownIcon size="15"></ChevronDownIcon>
+        </a>
+      </div>
+    </div>
+
+    <div id="kami" class=" bg-base-100">
+      <div class="hero min-h-screen">
+        <div class="hero-content flex-col lg:flex-row gap-10 max-w-5xl">
+          <img src="/assets/images/kami.png" class="max-w-sm rounded-lg" alt="kami"/>
+          <div>
+            <h1 class="text-3xl font-bold">Keamanan Informasi</h1>
+            <p class="py-3">Keamanan informasi adalah perlindungan terhadap segala jenis sumber daya informasi dari penyalahgunaan pihak yang tak berwenang mengelolanya</p>
+            <p class=""><b>Tujuan</b>:</p>
+            <ul class="list-disc">
+              <li>
+                <div>Keterjagaan</div>
+                <div>Melindungi data dan informasi dari pihak yang tidak memiliki wewenang untuk mengetahui atau mengelolanya.</div>
+              </li>
+              <li>
+                <div>Kesesuaian</div>
+                <div>Memastikan bahwa informasi hanya digunakan oleh pihak yang berwenang untuk mengelolanya</div>
+              </li>
+              <li>
+                <div>Integritas</div>
+                <div>Memberikan gambaran yang tepat dan akurat berkaitan dengan sistem fisik yang ditampilkannya.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center -mt-20">
+        <a href="#csirt" class="btn btn-primary">
+          <ChevronDownIcon size="15"></ChevronDownIcon>
+        </a>
+      </div>
+      <svg
+        class="fill-base-200 bg-base-100 text-base-100 hidden md:block -mt-32 -mb-32"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill-opacity="1"
+          d="M0,64L120,85.3C240,107,480,149,720,149.3C960,149,1200,107,1320,85.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        />
+      </svg>
+    </div>
+
+    <div id="csirt" class="bg-base-200">     
+      <div class="hero min-h-screen">     
+        <div class="hero-content flex-col lg:flex-row gap-10 max-w-5xl mt-10">
+          <div>
+            <h1 class="text-3xl font-bold">CSIRT</h1>
+            <p class="py-3">Persandian sebagai upaya untuk mengamankan, melindungi dan menjamin orisinalitas sebuah berita atau dokumen pemerintah merupakan hal yang amat penting dalam era serba teknologi informasi saat ini</p>
+          </div>
+          <img src="/assets/images/kami.png" class="max-w-sm rounded-lg" alt="kami"/>
+        </div>
+      </div>
+      <div class="text-center -mt-20">
+        <a href="#se" class="btn btn-primary">
+          <ChevronDownIcon size="15"></ChevronDownIcon>
+        </a>
+      </div>
+    </div>
+    
+    <div id="se" class="bg-base-200">     
+      <div class="hero min-h-screen">     
+        <div class="hero-content flex-col lg:flex-row gap-10 max-w-5xl mt-10">
+          <div>
+            <h1 class="text-3xl font-bold">Sertifikat Elektronik</h1>
+            <p class="py-3">Persandian sebagai upaya untuk mengamankan, melindungi dan menjamin orisinalitas sebuah berita atau dokumen pemerintah merupakan hal yang amat penting dalam era serba teknologi informasi saat ini</p>
+          </div>
+          <img src="/assets/images/kami.png" class="max-w-sm rounded-lg" alt="kami"/>
+        </div>
+      </div>
+      <div class="text-center -mt-20">
+        <a href="#audit" class="btn btn-primary">
+          <ChevronDownIcon size="15"></ChevronDownIcon>
+        </a>
+      </div>
+    </div>
+
+    
+    <div id="audit" class="bg-base-200">     
+      <div class="hero min-h-screen">     
+        <div class="hero-content flex-col lg:flex-row gap-10 max-w-5xl mt-10">
+          <div>
+            <h1 class="text-3xl font-bold">Audit</h1>
+            <p class="py-3">Persandian sebagai upaya untuk mengamankan, melindungi dan menjamin orisinalitas sebuah berita atau dokumen pemerintah merupakan hal yang amat penting dalam era serba teknologi informasi saat ini</p>
+          </div>
+          <img src="/assets/images/kami.png" class="max-w-sm rounded-lg" alt="kami"/>
+        </div>
+      </div>
+      <div class="text-center -mt-20">
+        <a href="#asesmen" class="btn btn-primary">
+          <ChevronDownIcon size="15"></ChevronDownIcon>
+        </a>
+      </div>
+    </div>
+
+    <div id="asesmen" class="bg-base-200">     
+      <div class="hero min-h-screen">     
+        <div class="hero-content flex-col lg:flex-row gap-10 max-w-5xl mt-10">
+          <div>
+            <h1 class="text-3xl font-bold">Asesmen</h1>
+            <p class="py-3">Persandian sebagai upaya untuk mengamankan, melindungi dan menjamin orisinalitas sebuah berita atau dokumen pemerintah merupakan hal yang amat penting dalam era serba teknologi informasi saat ini</p>
+          </div>
+          <img src="/assets/images/kami.png" class="max-w-sm rounded-lg" alt="kami"/>
+        </div>
+      </div>
+      <div class="text-center -mt-20">
+        <a href="#faq" class="btn btn-primary">
+          <ChevronDownIcon size="15"></ChevronDownIcon>
+        </a>
+      </div>
+    </div>
+
+    
+    <div id="faq" class="bg-base-200">     
+      <div class="hero min-h-screen">     
+        <div class="hero-content flex-col lg:flex-row gap-10 max-w-5xl mt-10">
+          <div>
+            <h1 class="text-3xl font-bold">FAQ</h1>
+            <p class="py-3">Pertanyaan yang sering diajukan</p>
+          </div>
+          <img src="/assets/images/kami.png" class="max-w-sm rounded-lg" alt="kami"/>
+        </div>
+      </div>
+      <div class="text-center -mt-20">
+        <a href="#csirt" class="btn btn-primary">
+          <ChevronDownIcon size="15"></ChevronDownIcon>
+        </a>
+      </div>
+    </div>
 
 		<div class="bg-base-200 md:overflow-hidden">
 			<div class="px-4 py-16">

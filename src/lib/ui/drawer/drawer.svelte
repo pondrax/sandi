@@ -1,6 +1,4 @@
 <script>
-	import Checkbox from '../input/checkbox.svelte';
-
 	/* drawer options */
 	export let open = false;
 	export let mobile = false;

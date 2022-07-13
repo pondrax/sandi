@@ -2,7 +2,7 @@
   import { user, notify, menu } from '$lib/store';
 	import env from '$lib/variables';
   import { http } from '$lib/api';
-	import { AtSignIcon, BookmarkIcon, BookOpenIcon, CircleIcon, FeatherIcon, KeyIcon, MapPinIcon, MenuIcon, Share2Icon, ZapIcon } from 'svelte-feather-icons';
+	import { AtSignIcon, BookmarkIcon, BookOpenIcon, CircleIcon, FeatherIcon, HomeIcon, KeyIcon, MapPinIcon, MenuIcon, Share2Icon, ZapIcon } from 'svelte-feather-icons';
 	import { 
     Button, 
     Drawer,
@@ -76,7 +76,7 @@
       <div class="py-4">
         <a href="/app/" class="flex justify-center py-4">
           <div class="avatar indicator">
-            <span class="indicator-item badge badge-secondary">{ $user.status || 'NOT_REGISTERED' }</span> 
+            <span class="indicator-item badge badge-secondary">{ $user.status || 'ADMINISTRATOR' }</span> 
             <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <!-- <img src="https://api.lorem.space/image/face" alt="avatar"/> -->
               <img src={$user.avatar} alt="avatar"/>
@@ -86,6 +86,7 @@
         <div class="text-center">
           <h3 class="font-bold uppercase">{ $user.name }</h3>
           <h4 class="text-gray-400 text-sm">{ $user.jabatan }</h4>
+          <h4 class="text-gray-400 text-sm">{ $user.unit_kerja }</h4>
           <div>
             <Button href="/app/profil" tiny primary>Profil</Button>
             <Button tiny on:click={logout}>Logout</Button>
@@ -94,9 +95,9 @@
         
       </div>
       <ul class="px-2 menu menu-compact">        
-        <li class="menu-title relative">
+        <!-- <li class="menu-title relative">
           <span>Tentang</span>
-        </li>
+        </li> -->
         <!-- <li>
           <div class="py-1 cursor-default bg-transparent text-sm">
             <AtSignIcon size="12"/>
@@ -109,43 +110,94 @@
             { $user.telepon }
           </div>
         </li> -->
-        <li>
+        <!-- <li>
           <div class="py-1 cursor-default bg-transparent text-sm">
             <MapPinIcon size="12"/>
             { $user.unit_kerja }
           </div>
-        </li>
+        </li> -->
         
-        <li class="my-5"></li>
+        <li><a href="/app/" on:click={()=>menu.set('dokumen')}>
+          <HomeIcon size="16"/>
+          Dashboard
+          <!-- <span class="badge text-xs ml-auto">12</span> -->
+        </a></li>
+        <!-- <li class="my-5"></li> -->
+
+        <li class="my-2"></li>
 
         <li class="menu-title">
-          <span>Tools</span>
+          <span>Audit</span>
         </li>
         <li><a href="/app/indeks-kami" on:click={()=>menu.set('dokumen')}>
           <BookOpenIcon size="16"/>
           Indeks KAMI
-          <!-- <span class="badge text-xs ml-auto">12</span> -->
+        </a></li>
+        <li><a href="/app/audit-keamanan">
+          <BookmarkIcon size="16"/>
+          Audit Keamanan SPBE
         </a></li>
         <li><a href="/app/audit-csm">
           <BookmarkIcon size="16"/>
           Cyber Security Maturity (CSM)
         </a></li>
-        <li><a href="/app/audit-keamanan">
-          <BookmarkIcon size="16"/>
-          Audit Keamanan
+
+        <li class="my-2"></li>
+
+        <li class="menu-title">
+          <span>Layanan</span>
+        </li>
+        <li><a href="/app/csirt" on:click={()=>menu.set('penandatangan')}>
+          <ZapIcon size="16"/>
+          CSIRT
+        </a></li>
+        <li><a href="/app/sertifikat-elektronik" on:click={()=>menu.set('ditandatangani')}>
+          <FeatherIcon size="16"/>
+          Sertifikat Elektronik
+        </a></li>
+        <li><a href="/app/tiket">
+          <KeyIcon size="16"/>
+          Helpdesk Keamanan
+        </a></li>
+        
+        <li class="my-2"></li>
+
+        <li class="menu-title">
+          <span>Lab</span>
+        </li>
+        <li><a href="/app/itsa" on:click={()=>menu.set('penandatangan')}>
+          <ZapIcon size="16"/>
+          ITSA
+        </a></li>
+        <li><a href="/app/pentest" on:click={()=>menu.set('ditandatangani')}>
+          <FeatherIcon size="16"/>
+          Pentest
+        </a></li>
+        <li><a href="/app/kerentanan">
+          <KeyIcon size="16"/>
+          Vulnerability Assessment
+        </a></li>
+        <li><a href="/app/lab">
+          <KeyIcon size="16"/>
+          Security Lab
         </a></li>
 
+        <li class="my-2"></li>
+
+        <li class="menu-title">
+          <span>Monitoring</span>
+        </li>
         <li><a href="/app/monitoring" on:click={()=>menu.set('penandatangan')}>
           <ZapIcon size="16"/>
           Monitoring
         </a></li>
-        <li><a href="/app/itsa" on:click={()=>menu.set('ditandatangani')}>
+        <li><a href="/app/wazuh" on:click={()=>menu.set('ditandatangani')}>
           <FeatherIcon size="16"/>
-          ITSA
+          Wazuh
         </a></li>
-        <li><a href="/app/prosedur">
+        <li><a href="/app/fortigate">
           <KeyIcon size="16"/>
-          Prosedur Keamanan
+          Fortigate
         </a></li>
         
         <li class="mt-5"></li>
@@ -157,16 +209,6 @@
             <CircleIcon size="12" class="text-blue-500"/> Baru
           </div>
         </li>
-        <!-- <li>
-          <div class="cursor-default bg-transparent text-sm">
-            <CircleIcon size="12" class="text-purple-500"/> Rahasia
-          </div>
-        </li> -->
-        <!-- <li>
-          <div class="cursor-default bg-transparent text-sm">
-            <CircleIcon size="12" class="text-red-500"/> Penting
-          </div>
-        </li> -->
         <li>
           <div class="cursor-default bg-transparent text-sm">
             <CircleIcon size="12" class="text-green-500"/> Direview
@@ -177,7 +219,7 @@
     </div>
     <div class="mt-auto mx-auto -mb-3 px-3 flex gap-1 py-2">
       <img src="/logo.png" alt="icon" class="h-8"/>
-      <!-- <img src="/bssn.png" alt="icon" class="h-8"/> -->
+      <img src="/bssn.png" alt="icon" class="h-8"/>
       <a href="/" class="ml-2 my-1 text-base-800 text-md">
         { env.name }
       </a>

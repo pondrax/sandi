@@ -19,7 +19,7 @@ let description;
         <li>Layanan Persandian</li>
       </ul>
     </div>
-    <img src="/security.png" alt="indeks kami" class="float-right w-24 mr-5">
+    <img src="/logo.png" alt="indeks kami" class="float-right w-24 mr-5">
     <h1 class="py-2 text-lg font-bold uppercase">
       Portal Layanan Persandian dan Keamanan Informasi Kota Mojokerto
     </h1>
@@ -41,13 +41,21 @@ let description;
     </div>
   </section>
 
-  <section>
+  <section class="py-3">
+    <h1 class="text-xl py-3">Audit</h1>
     <div class="flex flex-wrap gap-5">
       <a href="/app/indeks-kami" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
-        <img src="/indeks-kami.png" alt="Indeks Kami" class="h-10 absolute right-0"/>
+        <img src="/tools/indeks-kami.png" alt="Indeks Kami" class="h-10 absolute right-0"/>
         <div class="card-body">
           <h2 class="card-title">Indeks Kami</h2>
           <p>Indeks Keamanan Informasi</p>
+        </div>
+      </a>
+      <a href="/app/audit-keamanan" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/spbe.png" alt="Audit SPBE" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">Audit SPBE</h2>
+          <p>Audit Keamanan SPBE</p>
         </div>
       </a>
       <a href="/app/audit-csm" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
@@ -57,23 +65,98 @@ let description;
           <p>Cyber Security Maturity</p>
         </div>
       </a>
-      <a href="/app/audit-keamanan" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
-        <img src="/spbe.png" alt="Audit SPBE" class="h-10 absolute right-0"/>
+    </div>
+  </section>
+
+  <section class="py-3">
+    <h1 class="text-xl py-3">Layanan</h1>
+    <div class="flex flex-wrap gap-5">
+      <a href="/app/monitoring" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/csirt.png" alt="Monitoring Aplikasi" class="h-5 absolute right-0"/>
         <div class="card-body">
-          <h2 class="card-title">Audit SPBE</h2>
-          <p>Audit Keamanan SPBE</p>
+          <h2 class="card-title">CSIRT</h2>
+          <p>Computer Security Incident Response Team</p>
         </div>
       </a>
+      <a href="/app/sertifikat" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/bsre.png" alt="Monitoring Aplikasi" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">Sertifikat Elektronik</h2>
+          <p>Sertifikat Elektronik</p>
+        </div>
+      </a>
+      <a href="/app/helpdesk" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/helpdesk.png" alt="Monitoring Aplikasi" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">Helpdesk</h2>
+          <p>Permintaan / Aduan Layanan</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="py-3">
+    <h1 class="text-xl py-3">Lab</h1>
+    <div class="flex flex-wrap gap-5">
+      <a href="/app/itsa" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/itsa.png" alt="ITSA" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">ITSA</h2>
+          <p>IT Security Assessment</p>
+        </div>
+      </a>
+      <a href="/app/pentest" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/pentest.png" alt="Pentest" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">Pentest</h2>
+          <p>Penetrating Test</p>
+        </div>
+      </a>
+      <a href="/app/vulnerability" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/va.png" alt="Vulnerability" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">VA</h2>
+          <p>Vulnerability Assesment</p>
+        </div>
+      </a>
+      <a href="/app/lab" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/lab.png" alt="Lab" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">Lab</h2>
+          <p>Security Lab</p>
+        </div>
+      </a>
+    </div>
+  </section>
+  
+  <section class="py-3">
+    <h1 class="text-xl py-3">Monitoring</h1>
+    <div class="flex flex-wrap gap-5">
       <a href="/app/monitoring" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
-        <img src="/monitoring.png" alt="Monitoring Aplikasi" class="h-10 absolute right-0"/>
+        <img src="/tools/monitoring.png" alt="Monitoring Aplikasi" class="h-10 absolute right-0"/>
         <div class="card-body">
           <h2 class="card-title">Monitoring</h2>
-          <p>Monitoring</p>
+          <p>Monitoring Aplikasi</p>
+        </div>
+      </a>
+      <a href="/app/wazuh" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/wazuh.png" alt="Monitoring Aplikasi" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">Wazuh</h2>
+          <p>Security Monitoring</p>
         </div>
       </a>
       
+      <a href="/app/firewall" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/fortigate.png" alt="Monitoring Aplikasi" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">Firewall</h2>
+          <p>Firewall Fortigate</p>
+        </div>
+      </a>    
     </div>
   </section>
+  
 </div>
 
 <Portal>

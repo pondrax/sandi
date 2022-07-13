@@ -1,5 +1,5 @@
 <script>
-	import { Button, Checkbox, Radio, Range, Toggle, Imask, Textarea } from '$ui';
+	import { Button, Checkbox, Radio, Range, Toggle, Textarea } from '$ui';
 
 	/* Input values properties */
 	export let name = null;
@@ -33,7 +33,7 @@
 	{:else if type == 'textarea'}
 		<Textarea bind:value {...$$restProps} />
 	{:else}
-		<Imask bind:value bind:type bind:rawValue {...$$restProps} />
+		<!-- <Imask bind:value bind:type bind:rawValue {...$$restProps} /> -->
 	{/if}
   <div class="label text-error-content text-xs">
     {#if error}

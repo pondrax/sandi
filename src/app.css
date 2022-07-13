@@ -32,7 +32,18 @@ html {
    /* roundness of the scroll thumb */
   /* border: 3px solid orange;  creates padding around scroll thumb */
 }
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: block;
+}
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
 :root,
 *{
   scrollbar-color: hsl(var(--p)) transparent !important;
@@ -54,4 +65,8 @@ html {
 
 .table :where(th,td){
   white-space: normal;
+}
+
+.apexcharts-legend-text {
+  color: hsl(var(--bc)) !important;
 }

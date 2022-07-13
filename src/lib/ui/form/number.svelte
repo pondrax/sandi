@@ -55,11 +55,13 @@
 		class:input-group-sm={small}
 		class:input-group-lg={large}
 	>
-  <!-- <Button on:click={decrement} outline {tiny} {small} {large}>-</Button> -->
-  <slot name="prefix" />
+    <slot name="prefix" />
+    <Button on:click={decrement} outline {tiny} {small} {large}>-</Button>
+
 		<input
 			bind:value
 			type="number"
+
 			{...$$restProps}
       {max}
       {min}
@@ -79,19 +81,8 @@
 			class:input-lg={large}
 			class:input-bordered={border}
 		/>
-			<!-- <Button on:click={increment} outline {tiny} {small} {large}>+</Button> -->
-
+    
+		<Button on:click={increment} outline {tiny} {small} {large}>+</Button>
 		<slot name="suffix" />
 	</div>
 </div>
-
-<style>
-	/* input::-webkit-outer-spin-button,
-	input::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
-	input[type='number'] {
-		-moz-appearance: textfield;
-	} */
-</style>

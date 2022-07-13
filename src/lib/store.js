@@ -5,7 +5,7 @@ export let user = writable({
   name: 'Pengguna Esign',
   nip: 'NIP',
   jabatan: 'Member',
-  status: 'ISSUE',
+  status: 'ADMINISTRATOR',
   unit_kerja: 'Pemerintah Kota Mojokerto',
   avatar: '/logo.png',
 });

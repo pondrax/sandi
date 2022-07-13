@@ -1,3 +1,1 @@
-import ApexChart from './apexchart.svelte'
-
-export default ApexChart;
+export { default as ApexChart } from './apexchart.svelte'

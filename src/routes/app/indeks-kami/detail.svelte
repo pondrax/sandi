@@ -34,11 +34,16 @@ $: if(isian){
   calculate()
 }
 
+let finalSkor = {
+  total:0,
+  kategori:'Rendah',
+  kriteria:{}
+}
 let statusSkor = {}
 let validasiSkor = {}
 
 const calculateSkor = (data, kategori, prop)=>{
-  let kriteria = daftarKriteria.filter(k=>k.kode==kategori.kode).reverse()
+  let kriteria = daftarKriteria.filter(k=>k.kode==kategori.kode)
   let skor = {};
   skor.total = data.reduce((prev,d)=>d[prop]+prev,0);
   
@@ -53,27 +58,30 @@ const calculateSkor = (data, kategori, prop)=>{
     skor.V    = data.filter(v=>v.tingkat=='V').reduce((p,v)=>p+v[prop],0);
 
     skor.tkII = kriteria.find(k=>k.tingkat=='II' && k.minimal.II <=skor.II);
-    skor.tkIII= kriteria.find(k=>k.tingkat=='III'&& k.minimal.III<=skor.III&& k.minimal.II <skor.II);
-    skor.tkIV = kriteria.find(k=>k.tingkat=='IV' && k.minimal.IV <=skor.IV && k.minimal.III<skor.III);
-    skor.tkV  = kriteria.find(k=>k.tingkat=='V'  && k.minimal.V  <=skor.V  && k.minimal.IV <skor.IV);
+    skor.tkIII= kriteria.find(k=>k.tingkat=='III'&& k.minimal.III<=skor.III&& k.minimal.II <=skor.II);
+    skor.tkIV = kriteria.find(k=>k.tingkat=='IV' && k.minimal.IV <=skor.IV && k.minimal.III<=skor.III);
+    skor.tkV  = kriteria.find(k=>k.tingkat=='V'  && k.minimal.V  <=skor.V  && k.minimal.IV <=skor.IV);
 
-    skor.klasifikasi = (skor.tkV || skor.tkIV || skor.tkIII || skor.tkII ||{}).klasifikasi;
+    skor.klasifikasi = (skor.tkV || skor.tkIV || skor.tkIII || skor.tkII || {}).klasifikasi;
 
   }else if(kategori.tipe == 'persen'){
     skor.klasifikasi = Math.ceil(skor.total / kriteria[0].minimal.total * 100) + '%'
   }else{
-    skor.klasifikasi = (kriteria.find(k=>k.minimal.total<=skor.total) ||{}).klasifikasi;
+    skor.klasifikasi = (kriteria.find(k=>k.minimal<=skor.total) ||{}).klasifikasi;
   }
   return skor;
 }
-const calculate = () =>{  
+const calculate = () =>{
   daftarKategori.forEach(kategori=>{
     let currentIsian = Object.values(isian).filter(i=>i.kode.startsWith(kategori.kode));
     // console.log( calculateSkor(currentIsian,k,'status'))
     statusSkor[kategori.kode] = calculateSkor(currentIsian,kategori,'status');
     validasiSkor[kategori.kode] = calculateSkor(currentIsian,kategori,'validasi');
+    // console.log(statusSkor)
   })  
-  // console.log(statusSkor);
+  finalSkor.total = Object.keys(statusSkor).filter(key=>!(key.startsWith(1)||key.startsWith(7))).reduce((prev,val)=>prev+statusSkor[val].total,0)
+  finalSkor.kategori = (statusSkor[1]||{}).klasifikasi
+  finalSkor.kriteria = (daftarKriteria.find(val=>val.kode==finalSkor.kategori&&val.minimal<=finalSkor.total)||{})
 }
 const kode = (num) =>{
   if(!num){
@@ -109,12 +117,12 @@ onMount(()=>{
           tingkat:k.tingkat,
           tahap:k.tahap,
           dokumen:[],
-          status:null,
+          status:null,// default value
           validasi:null
         }
       }
     })
-    // alert(bagian)
+    
     document.querySelector(`[data-sticky="${bagian}"]`).scrollIntoView({behavior:'smooth'});
 
     const observer = new IntersectionObserver(([e]) => {
@@ -141,12 +149,8 @@ onMount(()=>{
         <li>Detail</li>
       </ul>
     </div>
-    <img src="/indeks-kami.png" alt="indeks kami" class="float-right w-24 mr-5 -mb-5">
+    <img src="/tools/indeks-kami.png" alt="indeks kami" class="float-right w-24 mr-5 -mb-5">
     <h1 class="pb-2 text-xl font-bold uppercase">Asesmen Indeks Kami : { detail.ruang_lingkup }</h1>
-    <!-- <div class="flex flex-wrap md:flex-nowrap justify-between w-full py-2">
-      <div>
-      </div>
-    </div> -->
   </section>
 
   <section class="">
@@ -159,12 +163,15 @@ onMount(()=>{
       </div>
       
       <div class="px-5 text-center">
-        <div class="my-2 radial-progress text-secondary text-center text-sm" style="--value:80;--size:5rem;">
-          <b>{ (statusSkor[kode(currentKategori.kode)] || {}).klasifikasi }</b>
+        <div class="my-2 radial-progress text-secondary text-center text-sm" style={`--value:${finalSkor.total/finalSkor.kriteria.maksimal*100};--size:5rem;`}>
+          <b>{ finalSkor.kategori }</b>
+          <b>{ finalSkor.total }</b>
         </div>
+        
         <br>
-        <div class="badge badge-accent">
-          VERIFIED
+        <div class="badge badge-accent w-40 h-auto">
+          { finalSkor.kriteria.klasifikasi }
+          <!-- { finalSkor.kriteria.maksimal } -->
         </div>
       </div>
     </div>
@@ -211,7 +218,12 @@ onMount(()=>{
                 <td class="align-top text-center">
                   <span>{ d.kode }</span>
                   {#if d.tingkat}
-                    <span class="badge badge-error">Tk.{ d.tingkat }</span>
+                    <span class="badge badge-error whitespace-nowrap">
+                      Tk.{ d.tingkat } :                
+                      {#if statusSkor[kode(d.kode)]}
+                        { statusSkor[kode(d.kode)][d.tingkat] } 
+                      {/if}
+                    </span>
                   {/if}
                   {#if d.tahap}
                     <span class="badge badge-info whitespace-nowrap">

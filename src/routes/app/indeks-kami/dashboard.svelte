@@ -107,7 +107,7 @@ const chartOptions = ()=>{
         <li>Dashboard</li>
       </ul>
     </div>
-    <img src="/indeks-kami.png" alt="indeks kami" class="float-right w-24 mr-5">
+    <img src="/tools/indeks-kami.png" alt="indeks kami" class="float-right w-24 mr-5">
     <h1 class="pb-2 text-xl font-bold uppercase">Dashboard Asesmen Indeks Keamanan Informasi (Versi {detail.versi})</h1>
     <div class="flex flex-wrap md:flex-nowrap justify-between w-full py-2">
       <div>

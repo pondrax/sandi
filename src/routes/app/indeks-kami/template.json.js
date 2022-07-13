@@ -66,25 +66,101 @@ export const daftarKategori = [
 
 export const daftarKriteria = [
   {
-    kode: 1,
-    minimal: {total:0},
-    klasifikasi: '#N/A' 
+    kode: 'Rendah',
+    minimal: 0,
+    maksimal: 174,
+    klasifikasi: 'Tidak Layak' 
   },
   {
+    kode: 'Rendah',
+    minimal: 175,
+    maksimal: 312,
+    klasifikasi: 'Pemenuhan Kerangka Kerja Dasar' 
+  },
+  {
+    kode: 'Rendah',
+    minimal: 313,
+    maksimal: 535,
+    klasifikasi: 'Cukup Baik' 
+  },
+  {
+    kode: 'Rendah',
+    minimal: 536,
+    maksimal:645,
+    klasifikasi: 'Baik' 
+  },
+
+  {
+    kode: 'Tinggi',
+    minimal: 0,
+    maksimal: 272,
+    klasifikasi: 'Tidak Layak' 
+  },
+  {
+    kode: 'Tinggi',
+    minimal: 273,
+    maksimal: 455,
+    klasifikasi: 'Pemenuhan Kerangka Kerja Dasar' 
+  },
+  {
+    kode: 'Tinggi',
+    minimal: 456,
+    maksimal: 582,
+    klasifikasi: 'Cukup Baik' 
+  },
+  {
+    kode: 'Tinggi',
+    minimal: 583,
+    maksimal:645,
+    klasifikasi: 'Baik' 
+  },
+
+  {
+    kode: 'Strategis',
+    minimal: 0,
+    maksimal: 333,
+    klasifikasi: 'Tidak Layak' 
+  },
+  {
+    kode: 'Strategis',
+    minimal: 334,
+    maksimal: 535,
+    klasifikasi: 'Pemenuhan Kerangka Kerja Dasar' 
+  },
+  {
+    kode: 'Strategis',
+    minimal: 536,
+    maksimal: 609,
+    klasifikasi: 'Cukup Baik' 
+  },
+  {
+    kode: 'Strategis',
+    minimal: 610,
+    maksimal:645,
+    klasifikasi: 'Baik' 
+  },
+
+  // {
+  //   kode: 1,
+  //   minimal: 0,
+  //   klasifikasi: '#N/A' 
+  // },
+  {
     kode: 1,
-    minimal: {total:10},
+    minimal: 0,
     klasifikasi: 'Rendah' 
   },
   {
     kode: 1,
-    minimal: {total:16},
+    minimal: 16,
     klasifikasi: 'Tinggi' 
   },
   {
     kode: 1,
-    minimal: {total:35},
+    minimal: 35,
     klasifikasi: 'Strategis' 
   },
+
   {
     kode: 2,
     tingkat:'II',
@@ -127,6 +203,7 @@ export const daftarKriteria = [
     tingkat:'IV',
     klasifikasi: 'Tk. IV' 
   },
+
   {
     kode: 3,
     tingkat:'II',
@@ -147,37 +224,37 @@ export const daftarKriteria = [
   },
   {
     kode: 3,
-    minimal:{II:24,III:4},
+    minimal:{III:4,II:24},
     tingkat:'III',
     klasifikasi: 'Tk. II+' 
   },
   {
     kode: 3,
-    minimal:{II:24,III:8},
+    minimal:{III:8,II:24},
     tingkat:'III',
     klasifikasi: 'Tk. III' 
   },
   {
     kode: 3,
-    minimal:{III:10,IV:8},
+    minimal:{IV:8,III:10},
     tingkat:'IV',
     klasifikasi: 'Tk. III+' 
   },
   {
     kode: 3,
-    minimal:{III:10,IV:12},
+    minimal:{IV:12,III:10},
     tingkat:'IV',
     klasifikasi: 'Tk. IV' 
   },
   {
     kode: 3,
-    minimal:{IV:12,V:12},
+    minimal:{V:12,IV:12},
     tingkat:'V',
     klasifikasi: 'Tk. IV+' 
   },
   {
     kode: 3,
-    minimal:{IV:12,V:18},
+    minimal:{V:18,IV:12},
     tingkat:'V',
     klasifikasi: 'Tk. V' 
   },
@@ -327,7 +404,7 @@ export const daftarKriteria = [
     klasifikasi: '%' 
   },
 
-];
+].reverse();
 
 export const daftarTemplate = [
   {

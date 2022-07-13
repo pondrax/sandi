@@ -1,5 +1,5 @@
 <script>
-	import { Button, Checkbox, Radio, Range, Toggle, Imask, Textarea } from '$ui';
+	import { Button, Checkbox, Radio, Range, Toggle, Textarea } from '$ui';
 
 	/* select values properties */
 	export let label = null;

@@ -1,9 +1,18 @@
 <script>
-	import { Button, Checkbox, Input, Radio, Range, Toggle, Textarea, MockupCode } from '$ui';
+	import { Button, Checkbox, Input, Number, Password, Radio, Range, Toggle, Textarea, MockupCode } from '$ui';
 
 	import { Log } from '$lib/utils';
 
-	let input = {};
+	let input = {
+    text: 'default text',
+    password: '',
+    mask: '',
+    _mask: '',
+    phone: '',
+    _phone: '',
+    currency:'',
+    _currency: ''
+  };
 	let textarea = {};
 	let checkbox = {};
 	let toggle = {};
@@ -25,16 +34,15 @@
 			<div class="grid md:grid-cols-3 gap-5 my-3">
 				<Input bind:value={input.text} label="Label Input" placeholder="Placeholder Input" />
 
-				<Input
+				<Password
 					bind:value={input.password}
 					type="password"
 					label="Label Password"
 					placeholder="Placeholder Password"
 				/>
 
-				<Input
+				<Number
 					bind:value={input.number}
-					type="number"
 					min={0}
 					max={10}
 					step={0.5}
@@ -45,22 +53,24 @@
 
 			<div class="grid md:grid-cols-3 gap-5 my-3">
 				<Input
-					bind:value={input.masking}
-					mask="__-___-_____"
+					bind:value={input.mask}
+          bind:rawValue={input._mask}
+					mask={{mask:"__-___-_____"}}
 					label="Label Masking"
 					placeholder="Placeholder Masking"
 				/>
 
 				<Input
 					bind:value={input.phone}
-					mask="(+62) ___-____-____"
+          bind:rawValue={input._phone}
+					mask={{mask:"(+) ___ ___ ____"}}
 					label="Label Masking Phone"
 					placeholder="Placeholder Masking"
 				/>
 
 				<Input
-					bind:value={input.rp}
-					rawValue={input.rawRp}
+					bind:value={input.currency}
+					bind:rawValue={input._currency}
 					currency="id-ID"
 					label="Label Input Currency"
 					placeholder="Placeholder Currency"
@@ -89,12 +99,6 @@
 			<h3>TEXTAREA</h3>
 			<div class="grid md:grid-cols-3 gap-5 my-3">
 				<Textarea bind:value={textarea.textarea} placeholder="coba" label="Label Textarea" />
-				<Input
-					type="textarea"
-					bind:value={textarea.textarea}
-					placeholder="coba"
-					label="Label Textarea"
-				/>
 			</div>
 			<MockupCode data={Log(textarea)} open tiny highlight="js"/>
 		</section>
