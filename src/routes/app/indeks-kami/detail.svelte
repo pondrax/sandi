@@ -152,7 +152,7 @@ onMount(()=>{
     <img src="/tools/indeks-kami.png" alt="indeks kami" class="float-right w-24 mr-5 -mb-5">
     <h1 class="pb-2 text-xl font-bold uppercase">Asesmen Indeks Kami : { detail.ruang_lingkup }</h1>
   </section>
-
+  
   <section class="">
     <div class="flex flex-wrap md:flex-nowrap justify-between gap-5">
       <div class="w-full">

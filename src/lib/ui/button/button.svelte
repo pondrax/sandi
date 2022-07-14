@@ -1,5 +1,6 @@
 <script>
 	/* button styles */
+	export let blank = false;
 	export let submit = false;
 	export let href = null;
 	export let primary = false;
@@ -70,6 +71,7 @@
 {:else}
 	<a
 		{href}
+    target={blank?'_blank':''}
 		class="btn"
 		class:gap-2={gap}
 		class:justify-start={left}

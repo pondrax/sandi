@@ -51,11 +51,18 @@ let description;
           <p>Indeks Keamanan Informasi</p>
         </div>
       </a>
-      <a href="/app/audit-keamanan" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+      <a href="/app/audit-keamanan-aplikasi" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
         <img src="/tools/spbe.png" alt="Audit SPBE" class="h-10 absolute right-0"/>
         <div class="card-body">
           <h2 class="card-title">Audit SPBE</h2>
-          <p>Audit Keamanan SPBE</p>
+          <p>Audit Keamanan Aplikasi SPBE</p>
+        </div>
+      </a>
+      <a href="/app/audit-keamanan-infra" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">
+        <img src="/tools/spbe.png" alt="Audit SPBE" class="h-10 absolute right-0"/>
+        <div class="card-body">
+          <h2 class="card-title">Audit SPBE</h2>
+          <p>Audit Keamanan Infrastruktur SPBE</p>
         </div>
       </a>
       <a href="/app/audit-csm" class="card card-compact min-w-[15em] bg-base-100 hover:bg-primary shadow-xl">

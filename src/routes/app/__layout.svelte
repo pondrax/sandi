@@ -133,9 +133,13 @@
           <BookOpenIcon size="16"/>
           Indeks KAMI
         </a></li>
-        <li><a href="/app/audit-keamanan">
+        <li><a href="/app/audit-keamanan-aplikasi">
           <BookmarkIcon size="16"/>
-          Audit Keamanan SPBE
+          Audit Keamanan Aplikasi
+        </a></li>
+        <li><a href="/app/audit-keamanan-infra">
+          <BookmarkIcon size="16"/>
+          Audit Keamanan Infrastruktur
         </a></li>
         <li><a href="/app/audit-csm">
           <BookmarkIcon size="16"/>

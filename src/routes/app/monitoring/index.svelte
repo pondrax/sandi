@@ -118,7 +118,7 @@ const scrollTo = (id)=>{
     </Button>
 
     <div class="w-full">
-      <Input bind:value={detail.query.tanggal} type="date" small onInput={getDataMonitoring}></Input>
+      <Input bind:value={detail.query.tanggal} type="date" small on:input={getDataMonitoring}></Input>
     </div>
     {#if stuck}
       <div style="margin-top:-2px">
